@@ -4,7 +4,6 @@
 
 */
 #include "extcode.h"
-#include <ansi_c.h>
 
 // Specific for CVI compilier to ensure data is packed by 1 byte.  
 // For other compiliers there are settings to force 1-byte alignment.
@@ -69,49 +68,49 @@ typedef struct {
 // Modifies the contents of a 1-D array (NOTE it is passed as a double*) So LV 
 // data types aren't required.  This method is convient, but crashing LV can 
 // occur if you write past bounds of array.
-int32 __cdecl Modify1DArray(double* in_array, int32 size);
+int32 _declspec(dllexport) Modify1DArray(double* in_array, int32 size);
 
 // Does the same thing as above example, but uses LV data structure with size 
 // of array built in.  This helps make it easier to keep track of size to 
 // prevent writing past bounds.
-int32 __cdecl ModifyLV1DArray(TD1Hdl in_array);
+int32 _declspec(dllexport) ModifyLV1DArray(TD1Hdl in_array);
 
 // Dynamically resizes a 1-D array to size and fills with data
-int32 __cdecl Dynamic1DArrayResize(TD1Hdl in_array, int32 size);
+int32 _declspec(dllexport) Dynamic1DArrayResize(TD1Hdl in_array, int32 size);
 
 // Modifies the contents of a 2-D array passed in from LabVIEW as a double*, so size
 // information is required
-int32 __cdecl Modify2DArray(double* in_array, int32 nrows, int32 ncols); 
+int32 _declspec(dllexport) Modify2DArray(double* in_array, int32 nrows, int32 ncols); 
 
 // Modifies the contents of 2-D array passed as a handle to a LabVIEW structure, so 
 // size information is in the structure.
-int32 __cdecl Modify2DLVArray(TD2Hdl in_array);  
+int32 _declspec(dllexport) Modify2DLVArray(TD2Hdl in_array);  
 
 // Dynamically resizes a 2-D array and fills with new data
-int32 __cdecl Dynamic2DArrayResize(TD2Hdl in_array, int32 nrows, int32 ncols);
+int32 _declspec(dllexport) Dynamic2DArrayResize(TD2Hdl in_array, int32 nrows, int32 ncols);
 
 // Modifies contents of string, can't change size of string though (NOTE it is a 
 // char*, so size of the string passed in is not known.  Can use strlen to get 
 // length.  (see C code)
-int32 __cdecl ModifyString (char* in_string);  
+int32 _declspec(dllexport) ModifyString (char* in_string);  
 
 // Modify a String (exactly same as above), but passes string as a LabVIEW string 
 // instead of a C string
-int32 __cdecl ModifyLVString(LStrHandle in_array);
+int32 _declspec(dllexport) ModifyLVString(LStrHandle in_array);
 
 // Dynamically changes size of string in LabVIEW
-int32 __cdecl DynamicStringResize(LStrHandle in_string, int32 size);
+int32 _declspec(dllexport) DynamicStringResize(LStrHandle in_string, int32 size);
 
 // Dynamically creates an array of strings with different lengths for each string.  
 // The array has size number of strings
-int32 __cdecl DynamicStringArrayResize(LVStrArrayHdl in_array, int32 size);    
+int32 _declspec(dllexport) DynamicStringArrayResize(LVStrArrayHdl in_array, int32 size);    
 
 // Dynamically creates an array of booleans.
-int32 __cdecl Dynamic1DBoolArrayResize(LVBoolArrayHdl in_array, int32 size);
+int32 _declspec(dllexport) Dynamic1DBoolArrayResize(LVBoolArrayHdl in_array, int32 size);
 
 // Modifies the contents of a cluster passed in from LabVIEW with an  
 // array of numbers, a string, a boolean, and a number
-int32 __cdecl ModifyCluster(LVCluster *in_cluster);    
+int32 _declspec(dllexport) ModifyCluster(LVCluster *in_cluster);    
 
 // Note all LV passes handles to all these datatypes, except a cluster which is 
 // passed as a pointer to the structure
