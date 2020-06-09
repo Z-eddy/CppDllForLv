@@ -24,6 +24,9 @@
   <ItemGroup>
     <ClInclude Include="CtoLV.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Source.def" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{8C8706CE-6B1C-4D7D-A489-67665E8AB4EF}</ProjectGuid>
