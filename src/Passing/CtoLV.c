@@ -22,7 +22,7 @@ int32 ModifyLV1DArray(TD1Hdl in_array)
   int32 i;
   
   for (i=0; i < (*in_array)->dimSize; i++)
-    (*in_array)[1].arg1[i-1] = (float64)(i+0.5);
+    (*in_array)->arg1[i] = (float64)(i+0.5);
   return 0;
 }
 
@@ -40,7 +40,7 @@ int32 Dynamic1DArrayResize(TD1Hdl in_array, int32 size)
     
     for (i=0;i < size;i++)
     {
-      (*in_array)[1].arg1[i-1]=(float64)(i +.5);
+      (*in_array)->arg1[i]=(float64)(i +.5);
 	}
     return 0;
   }
