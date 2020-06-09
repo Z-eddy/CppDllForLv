@@ -73,7 +73,7 @@ _declspec(dllexport) int32 __cdecl Modify1DArray(double* in_array, int32 size);
 // Does the same thing as above example, but uses LV data structure with size 
 // of array built in.  This helps make it easier to keep track of size to 
 // prevent writing past bounds.
-_declspec(dllexport) int32 __cdecl ModifyLV1DArray(TD1Hdl in_array,double *arr,int size);
+_declspec(dllexport) int32 __cdecl ModifyLV1DArray(TD1Hdl in_array);
 
 // Dynamically resizes a 1-D array to size and fills with data
 _declspec(dllexport) int32 __cdecl Dynamic1DArrayResize(TD1Hdl in_array, int32 size);

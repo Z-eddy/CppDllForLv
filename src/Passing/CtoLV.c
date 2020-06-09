@@ -15,22 +15,14 @@ int32 Modify1DArray(double* in_array, int32 size)
 
 // Modifies contents of LV array.  Since the LV array structure is passed, the size information 
 // is in this structre.
-int32 ModifyLV1DArray(TD1Hdl in_array,double *arr,int size)
+int32 ModifyLV1DArray(TD1Hdl in_array)
 {
   //if you use LV data types, the size information is inside the structure.
   
   int32 i;
   
-  for (i = 0; i < (*in_array)->dimSize; i++) {
-	  arr[i] = (*in_array)[1].arg1[i-1];
-	  //arr[i*2] = (*in_array)[1].arg1[i];
-	  //arr[i*3] = (*in_array)[2].arg1[i];
-	  //arr[i*4] = (*in_array)[3].arg1[i];
-	  //arr[i*5] = (*in_array)[4].arg1[i];
-	  //arr[i*6] = (*in_array)[5].arg1[i];
-	  //arr[i*7] = (*in_array)[6].arg1[i];
-	  //(*in_array)->arg1[i] = i + 0.5;
-  }
+  for (i=0; i < (*in_array)->dimSize; i++)
+    (*in_array)[1].arg1[i-1] = (float64)(i+0.5);
   return 0;
 }
 
@@ -48,7 +40,7 @@ int32 Dynamic1DArrayResize(TD1Hdl in_array, int32 size)
     
     for (i=0;i < size;i++)
     {
-      (*in_array)->arg1[i]=(float64)(i +.5);
+      (*in_array)[1].arg1[i-1]=(float64)(i +.5);
 	}
     return 0;
   }
