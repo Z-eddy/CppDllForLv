@@ -1,4 +1,4 @@
-/* This header file contains the LV data structures and the list of functions 
+﻿/* This header file contains the LV data structures and the list of functions 
    this dll exports.  A brief explanation of how each type of data is stored in
    LabVIEW memory is described.
 
@@ -10,6 +10,8 @@
 // In MSVC++ 6.0 under Project>>Settings C/C++ Tab, in the category 
 // for Code Generation, make sure the struct alignment is set to 1 
 // byte to achive the same result.
+
+/*如果是64位则注释掉,32位必须有！！！*/
 #pragma pack(1)
 
 // A 2-D array of 16 bit integers. The first parameters is an array of sizes.
@@ -60,6 +62,8 @@ typedef struct {
 
 // Tells CVI to align structures by 1 byte instead of default 8, corresponds 
 // with above pragma command.
+
+/*如果是64位则注释掉,32位必须有！！！*/
 #pragma pack()
 
 
